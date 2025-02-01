@@ -1,87 +1,69 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorry Emerson</title>
     <style>
-        /* Estilo global */
         body {
-            background-color: #90EE90; /* Verde claro */
-            color: black;
             font-family: 'Times New Roman', Times, serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Altura de la pantalla */
+            background-color: #8e9e5d; /* Fondo verde otoñal */
+            color: black;
             margin: 0;
+            padding: 0;
             text-align: center;
-            transition: background-color 0.5s ease; /* Transición suave */
+            overflow: hidden;
         }
-
-        /* Fondo animado */
-        @keyframes backgroundAnimation {
-            0% { background-color: #90EE90; }
-            50% { background-color: #98FB98; }
-            100% { background-color: #90EE90; }
-        }
-
-        /* Título principal */
         h1 {
-            font-size: 4rem;
-            margin: 0;
-            animation: fadeIn 3s ease-out; /* Animación para el título */
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Sombra para el texto */
+            font-size: 3em;
+            margin-top: 100px;
+            color: black;
+        }
+        p {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .quote {
+            font-size: 1.2em;
+            margin: 30px 0;
+            font-style: italic;
+        }
+        /* Efecto de partículas de hojas */
+        .leaf {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: url('https://i.imgur.com/n8YOJ0z.png') no-repeat center center;
+            background-size: contain;
+            animation: fall 5s linear infinite;
         }
 
-        /* Animación de desvanecimiento */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        /* Botón */
-        .button {
-            background-color: black;
-            color: white;
-            font-size: 1.5rem;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        /* Efecto hover en el botón */
-        .button:hover {
-            transform: scale(1.1);
-            background-color: #333;
-        }
-
-        /* Contenedor de la página */
-        .container {
-            text-align: center;
-            animation: backgroundAnimation 5s infinite; /* Fondo con animación cíclica */
-        }
-
-        /* Estilos en dispositivos pequeños */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2.5rem; /* Título más pequeño en pantallas pequeñas */
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
             }
-            .button {
-                font-size: 1.2rem; /* Botón más pequeño en móviles */
-                padding: 12px 25px;
+            100% {
+                transform: translateY(100vh) rotate(360deg);
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Sorry Emerson</h1>
-        <p>Este mensaje es para ti, para pedir disculpas de la manera más especial posible.</p>
-        <button class="button" onclick="window.location.reload();">¡Haz clic para volver a intentarlo!</button>
-    </div>
+    <h1>Sorry Emerson</h1>
+    <p>I'm really sorry for calling and sending all those messages. I truly regret it.</p>
+    <p class="quote">"True friendship is like health: we never realize its value until we lose it." – François de La Rochefoucauld</p>
+
+    <!-- Partículas de hojas -->
+    <div class="leaf" style="left: 10%;"></div>
+    <div class="leaf" style="left: 20%; animation-duration: 6s;"></div>
+    <div class="leaf" style="left: 30%; animation-duration: 7s;"></div>
+    <div class="leaf" style="left: 40%; animation-duration: 5s;"></div>
+    <div class="leaf" style="left: 50%; animation-duration: 4s;"></div>
+    <div class="leaf" style="left: 60%; animation-duration: 6.5s;"></div>
+    <div class="leaf" style="left: 70%; animation-duration: 5.5s;"></div>
+    <div class="leaf" style="left: 80%; animation-duration: 7s;"></div>
+
 </body>
 </html>
