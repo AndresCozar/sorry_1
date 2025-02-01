@@ -3,9 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorry+</title>
+    <title>Sorry Emerson</title>
+    <style>
+        /* Estilo global */
+        body {
+            background-color: #90EE90; /* Verde claro */
+            color: black;
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Altura de la pantalla */
+            margin: 0;
+            text-align: center;
+            transition: background-color 0.5s ease; /* Transición suave */
+        }
+
+        /* Fondo animado */
+        @keyframes backgroundAnimation {
+            0% { background-color: #90EE90; }
+            50% { background-color: #98FB98; }
+            100% { background-color: #90EE90; }
+        }
+
+        /* Título principal */
+        h1 {
+            font-size: 4rem;
+            margin: 0;
+            animation: fadeIn 3s ease-out; /* Animación para el título */
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Sombra para el texto */
+        }
+
+        /* Animación de desvanecimiento */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Botón */
+        .button {
+            background-color: black;
+            color: white;
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        /* Efecto hover en el botón */
+        .button:hover {
+            transform: scale(1.1);
+            background-color: #333;
+        }
+
+        /* Contenedor de la página */
+        .container {
+            text-align: center;
+            animation: backgroundAnimation 5s infinite; /* Fondo con animación cíclica */
+        }
+
+        /* Estilos en dispositivos pequeños */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem; /* Título más pequeño en pantallas pequeñas */
+            }
+            .button {
+                font-size: 1.2rem; /* Botón más pequeño en móviles */
+                padding: 12px 25px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Sorry+</h1>
+    <div class="container">
+        <h1>Sorry Emerson</h1>
+        <p>Este mensaje es para ti, para pedir disculpas de la manera más especial posible.</p>
+        <button class="button" onclick="window.location.reload();">¡Haz clic para volver a intentarlo!</button>
+    </div>
 </body>
 </html>
