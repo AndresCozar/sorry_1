@@ -1,123 +1,104 @@
 <!DOCTYPE html>
+<html lang="es">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorry Page</title>
+    <title>Sorry Emerson</title>
     <style>
+        /* Estilo global */
         body {
-            background-color: #a8d08d; /* Verde otoñal */
-            font-family: 'Times New Roman', serif;
+            background-color: #90EE90; /* Verde claro */
             color: black;
-            text-align: center;
-            padding: 50px;
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Altura de la pantalla */
+            background-color: #8e9e5d; /* Fondo verde otoñal */
+            color: black;
             margin: 0;
+            padding: 0;
+            text-align: center;
+            transition: background-color 0.5s ease; /* Transición suave */
         }
-
+        /* Fondo animado */
+        @keyframes backgroundAnimation {
+            0% { background-color: #90EE90; }
+            50% { background-color: #98FB98; }
+            100% { background-color: #90EE90; }
+            overflow: hidden;
+        }
+        /* Título principal */
         h1 {
-            font-size: 2.5em;
+            font-size: 4rem;
+            margin: 0;
+            animation: fadeIn 3s ease-out; /* Animación para el título */
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Sombra para el texto */
         }
-
-        p {
-            font-size: 1.2em;
+        /* Animación de desvanecimiento */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+            font-size: 3em;
+            margin-top: 100px;
+            color: black;
         }
-
-        #sorry-message {
-            font-size: 1.5em;
-            margin-top: 20px;
-            color: #5c5c5c;
-        }
-
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
-
+        /* Botón */
         .button {
-            padding: 15px 30px;
-            font-size: 1.2em;
-            background-color: #F4A300;
-            border: none;
+            background-color: black;
             color: white;
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            margin-top: 20px;
             cursor: pointer;
-            border-radius: 10px;
-            margin-top: 30px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        p {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        /* Efecto hover en el botón */
+        .button:hover {
+            transform: scale(1.1);
+            background-color: #333;
+        .quote {
+            font-size: 1.2em;
+            margin: 30px 0;
+            font-style: italic;
+        }
+        /* Contenedor de la página */
+        .container {
+            text-align: center;
+            animation: backgroundAnimation 5s infinite; /* Fondo con animación cíclica */
         }
 
-        .button:hover {
-            background-color: #FF9500;
+        /* Estilos en dispositivos pequeños */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem; /* Título más pequeño en pantallas pequeñas */
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            .button {
+                font-size: 1.2rem; /* Botón más pequeño en móviles */
+                padding: 12px 25px;
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Sorry Emerson</h1>
-    <p>True friendship is like health: we never realize its value until we lose it. – François de La Rochefoucauld</p>
-    <div id="sorry-message">
-        Same shit always; I tend to overwhelm you with my messages
+    <div class="container">
+        <h1>Sorry Emerson</h1>
+        <p>Este mensaje es para ti, para pedir disculpas de la manera más especial posible.</p>
+        <button class="button" onclick="window.location.reload();">¡Haz clic para volver a intentarlo!</button>
     </div>
-
-    <button class="button" id="random-action-button">Do not pulse ; )</button>
-
-    <audio id="bird-sound" autoplay loop>
-        <source src="https://www.soundjay.com/nature/sounds/bird-01.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-
-    <script>
-        // Función que elige un sonido aleatorio
-        function playRandomSound() {
-            const sounds = [
-                'https://www.soundjay.com/human/sounds/man-scream-01.mp3',
-                'https://www.soundjay.com/button/beep-07.wav',
-                'https://www.soundjay.com/button/beep-10.wav'
-            ];
-            const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
-            const audio = new Audio(randomSound);
-            audio.play();
-        }
-
-        // Botón que reproduce el sonido aleatorio cuando se pulsa
-        document.getElementById('random-action-button').addEventListener('click', function() {
-            playRandomSound();
-        });
-
-        // Añadir partículas de otoño (opcional, puedes ajustar más si lo deseas)
-        function generateParticles() {
-            const container = document.createElement('div');
-            container.classList.add('particles');
-            document.body.appendChild(container);
-            
-            setInterval(() => {
-                const particle = document.createElement('div');
-                particle.style.position = 'absolute';
-                particle.style.width = '15px';
-                particle.style.height = '15px';
-                particle.style.backgroundColor = 'orange';
-                particle.style.borderRadius = '50%';
-                particle.style.animation = 'fall 2s infinite';
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `-20px`;
-                container.appendChild(particle);
-                
-                setTimeout(() => {
-                    particle.remove();
-                }, 2000); // Elimina la partícula después de la animación
-            }, 200); // Crea una partícula cada 200 ms
-        }
-        
-        generateParticles(); // Llamar a la función para que empiecen las partículas
-    </script>
-
-    <style>
-        @keyframes fall {
-            to {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
-        }
-    </style>
+    <h1>Sorry Emerson</h1>
+    <p>Same shit always, I'm truly sorry.</p>
+    <p class="quote">"True friendship is like health: we never realize its value until we lose it." – François de La Rochefoucauld</p>
 </body>
 </html>
