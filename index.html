@@ -3,67 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorry Emerson</title>
+    <title>Sorry Page</title>
     <style>
         body {
-            font-family: 'Times New Roman', Times, serif;
-            background-color: #8e9e5d; /* Fondo verde otoñal */
+            background-color: #a8d08d; /* Verde otoñal */
+            font-family: 'Times New Roman', serif;
             color: black;
-            margin: 0;
-            padding: 0;
             text-align: center;
-            overflow: hidden;
-        }
-        h1 {
-            font-size: 3em;
-            margin-top: 100px;
-            color: black;
-        }
-        p {
-            font-size: 1.5em;
-            margin: 20px 0;
-        }
-        .quote {
-            font-size: 1.2em;
-            margin: 30px 0;
-            font-style: italic;
-        }
-        /* Efecto de partículas de hojas */
-        .leaf {
-            position: absolute;
-            top: -50px;
-            left: 50%;
-            width: 20px;
-            height: 20px;
-            background: url('https://i.imgur.com/n8YOJ0z.png') no-repeat center center;
-            background-size: contain;
-            animation: fall 5s linear infinite;
+            padding: 50px;
+            margin: 0;
         }
 
-        @keyframes fall {
-            0% {
-                transform: translateY(0) rotate(0deg);
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-            }
+        h1 {
+            font-size: 2.5em;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        #sorry-message {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #5c5c5c;
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #F4A300;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .button:hover {
+            background-color: #FF9500;
         }
     </style>
 </head>
 <body>
     <h1>Sorry Emerson</h1>
-    <p>I'm really sorry for calling and sending all those messages. I truly regret it.</p>
-    <p class="quote">"True friendship is like health: we never realize its value until we lose it." – François de La Rochefoucauld</p>
+    <p>True friendship is like health: we never realize its value until we lose it. – François de La Rochefoucauld</p>
+    <div id="sorry-message">
+        Same shit always; I tend to overwhelm you with my messages
+    </div>
 
-    <!-- Partículas de hojas -->
-    <div class="leaf" style="left: 10%;"></div>
-    <div class="leaf" style="left: 20%; animation-duration: 6s;"></div>
-    <div class="leaf" style="left: 30%; animation-duration: 7s;"></div>
-    <div class="leaf" style="left: 40%; animation-duration: 5s;"></div>
-    <div class="leaf" style="left: 50%; animation-duration: 4s;"></div>
-    <div class="leaf" style="left: 60%; animation-duration: 6.5s;"></div>
-    <div class="leaf" style="left: 70%; animation-duration: 5.5s;"></div>
-    <div class="leaf" style="left: 80%; animation-duration: 7s;"></div>
+    <button class="button" id="random-action-button">Do not pulse ; )</button>
 
+    <audio id="bird-sound" autoplay loop>
+        <source src="https://www.soundjay.com/nature/sounds/bird-01.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Función que elige un sonido aleatorio
+        function playRandomSound() {
+            const sounds = [
+                'https://www.soundjay.com/human/sounds/man-scream-01.mp3',
+                'https://www.soundjay.com/button/beep-07.wav',
+                'https://www.soundjay.com/button/beep-10.wav'
+            ];
+            const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
+            const audio = new Audio(randomSound);
+            audio.play();
+        }
+
+        // Botón que reproduce el sonido aleatorio cuando se pulsa
+        document.getElementById('random-action-button').addEventListener('click', function() {
+            playRandomSound();
+        });
+
+        // Añadir partículas de otoño (opcional, puedes ajustar más si lo deseas)
+        function generateParticles() {
+            const container = document.createElement('div');
+            container.classList.add('particles');
+            document.body.appendChild(container);
+            
+            setInterval(() => {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = '15px';
+                particle.style.height = '15px';
+                particle.style.backgroundColor = 'orange';
+                particle.style.borderRadius = '50%';
+                particle.style.animation = 'fall 2s infinite';
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `-20px`;
+                container.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 2000); // Elimina la partícula después de la animación
+            }, 200); // Crea una partícula cada 200 ms
+        }
+        
+        generateParticles(); // Llamar a la función para que empiecen las partículas
+    </script>
+
+    <style>
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+    </style>
 </body>
 </html>
